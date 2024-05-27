@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" 
+	th:replace="~{base:: layout(~{:: title}, ~{:: section} )}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <section>
+ 	<div class="container mt-5">
+ 		<div class="row">
+ 			<div class="col-md-6 offset-md-3">
+ 				<div class="card-header text-center">
+ 					<h2>Registration Form</h2>
+ 					<th:block th:if="${session.msg}">
+ 						<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
+ 						<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+ 					</th:block>
+ 				</div>
+ 				<div class="card-body">
+						<form action="saveUser" method="post">
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Username </label> 
+								<input type="text" class="form-control" name="name"
+									id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Email </label> 
+								<input type="text" class="form-control" name="email"
+									id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputPassword1" class="form-label">Password</label>
+								<input type="password" class="form-control" name="password"
+									id="exampleInputPassword1">
+							</div>
+							<button type="submit" class="btn btn-primary col-md-12">Register</button>
+						</form>
+					</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </section>
+	
+</body>
+</html>
