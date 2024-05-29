@@ -11,17 +11,21 @@
  			<div class="col-md-6 offset-md-3">
  				<div class="card-header text-center">
  					<h2>Login Form</h2>
+ 					<th:block th:if="${session.error}">
+ 						<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
+ 						<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+ 					</th:block>
  				</div>
  				<div class="card-body">
-						<form>
+						<form action="userLogin" method="post">
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Email </label> 
-								<input type="text" class="form-control" name="email"
+								<input type="text" class="form-control" name="username"
 									id="exampleInputEmail1" aria-describedby="emailHelp">
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputPassword1" class="form-label">Password</label>
-								<input type="password" class="form-control"
+								<input type="password" class="form-control" name="password"
 									id="exampleInputPassword1">
 							</div>
 							<button type="submit" class="btn btn-primary col-md-12">Login</button>
