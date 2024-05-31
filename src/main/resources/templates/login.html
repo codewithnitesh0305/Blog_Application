@@ -11,8 +11,12 @@
  			<div class="col-md-6 offset-md-3">
  				<div class="card-header text-center">
  					<h2>Login Form</h2>
- 					<th:block th:if="${session.error}">
- 						<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
+ 					<th:block th:if="${param.error}">
+ 						<p class="fs-5 text-center text-success">Email & password is invalied</p>
+ 						<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+ 					</th:block>
+ 					<th:block th:if="${param.logout}">
+ 						<p class="fs-5 text-center text-success">Logout Successfully..</p>
  						<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
  					</th:block>
  				</div>

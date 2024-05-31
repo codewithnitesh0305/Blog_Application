@@ -17,6 +17,9 @@ public class User {
 	private String email;
 	private String password;
 	private String role;
+	private boolean enable;
+	private String verficationCode;
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,10 +62,23 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public boolean isEnable() {
+		return enable;
+	}
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+	public String getVerficationCode() {
+		return verficationCode;
+	}
+	public void setVerficationCode(String verficationCode) {
+		this.verficationCode = verficationCode;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
-				+ "]";
+				+ ", enable=" + enable + ", verficationCode=" + verficationCode + "]";
 	}
 	
 	

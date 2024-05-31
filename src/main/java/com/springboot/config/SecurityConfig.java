@@ -16,6 +16,9 @@ public class SecurityConfig {
 	@Autowired
 	private CustomeUserService customeUserService;
 	
+	@Autowired
+	private CustomeAuthenticationSuccessHandler successHandler;
+	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -40,7 +43,8 @@ public class SecurityConfig {
 				.formLogin()
 					.loginPage("/login")
 					.loginProcessingUrl("/userLogin")
-					.defaultSuccessUrl("/Blog/allblogs").permitAll();
+					.successHandler(successHandler)
+					.permitAll();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
